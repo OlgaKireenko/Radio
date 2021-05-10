@@ -15,7 +15,8 @@ public class Radio {
     //
     private boolean on;
 
-    public String getName() { return name;
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
@@ -55,40 +56,37 @@ public class Radio {
 
 //Переключаем на следующую станцию
 
-        public int NextRadioStationNumber(int currentRadioStationNumber) {
-        if(currentRadioStationNumber>=maxRadioStationNumber){
-            currentRadioStationNumber=maxRadioStationNumber;
-        }
-        else if(currentRadioStationNumber<minRadioStationNumber){
-            currentRadioStationNumber=minRadioStationNumber;
-        }
-        else {
+    public int nextRadioStationNumber(int currentRadioStationNumber) {
+        if (currentRadioStationNumber >= maxRadioStationNumber) {
+            currentRadioStationNumber = maxRadioStationNumber;
+        } else if (currentRadioStationNumber < minRadioStationNumber) {
+            currentRadioStationNumber = minRadioStationNumber;
+        } else {
             currentRadioStationNumber = currentRadioStationNumber + 1;
         }
         return currentRadioStationNumber;
     }
 //Переключаем на предыдущую станцию
 
-        public int prevRadioStationNumber(int currentRadioStationNumber) {
-        if(currentRadioStationNumber<=minRadioStationNumber){
-            currentRadioStationNumber=minRadioStationNumber;
-        }
-        else if(currentRadioStationNumber>maxRadioStationNumber){
-            currentRadioStationNumber=maxRadioStationNumber;
-        }
-        else {
+    public int prevRadioStationNumber(int currentRadioStationNumber) {
+        if (currentRadioStationNumber <= minRadioStationNumber) {
+            currentRadioStationNumber = minRadioStationNumber;
+        } else if (currentRadioStationNumber > maxRadioStationNumber) {
+            currentRadioStationNumber = maxRadioStationNumber;
+        } else {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
         return currentRadioStationNumber;
     }
 
-        public int getMinVolume() {
+    public int getMinVolume() {
         return minVolume;
     }
 
     public void setMinVolume(int minVolume) {
         this.minVolume = minVolume;
     }
+
     public int getMaxVolume() {
         return maxVolume;
     }
@@ -96,7 +94,8 @@ public class Radio {
     public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
     }
-    public int getCurrentVolume(){
+
+    public int getCurrentVolume() {
         return currentVolume;
     }
 
@@ -107,42 +106,42 @@ public class Radio {
         if (currentVolume <= minVolume) {
             currentVolume = minVolume;
         }
-    this.currentVolume = currentVolume;
+        this.currentVolume = currentVolume;
     }
 
     public int minusVolume(int currentVolume) {
-        if (currentVolume>=maxVolume){
-            currentVolume=maxVolume;
+        if (currentVolume >= maxVolume) {
+            currentVolume = maxVolume;
+        } else if (currentVolume <= minVolume) {
+            currentVolume = minVolume;
+        } else {
+            currentVolume = currentVolume - 1;
         }
-        else if (currentVolume<=minVolume){
-            currentVolume=minVolume;
-        }
-        else {
-        currentVolume = currentVolume-1;}
 
         return currentVolume;
-            }
+    }
 
 
     public int plusVolume(int currentVolume) {
-        if (currentVolume>=maxVolume){
+        if (currentVolume >= maxVolume) {
 
-            currentVolume=maxVolume;}
-            else if (currentVolume<=minVolume){
-            currentVolume=minVolume;
+            currentVolume = maxVolume;
+        } else if (currentVolume <= minVolume) {
+            currentVolume = minVolume;
+        } else {
+            currentVolume = currentVolume + 1;
         }
-        else{
-        currentVolume = currentVolume +1;}
 
         return currentVolume;
     }
-    public boolean isOn () {
-            return on;
-        }
 
-        public void setOn(boolean on) {
-            this.on = on;
-        }
-
+    public boolean isOn() {
+        return on;
     }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
+}
 

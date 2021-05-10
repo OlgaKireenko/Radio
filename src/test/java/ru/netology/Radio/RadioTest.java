@@ -19,7 +19,7 @@ class RadioTest {
     void ShouldChangeNextRadioStationNumber() {
         Radio radio = new Radio();
         int expected = 1;
-        int actual = radio.NextRadioStationNumber(0);
+        int actual = radio.nextRadioStationNumber(0);
         assertEquals(expected, actual);
     }
 
