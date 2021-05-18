@@ -56,7 +56,7 @@ public class Radio {
 
 //Переключаем на следующую станцию
 
-    public int nextRadioStationNumber(int currentRadioStationNumber) {
+    public int nextRadioStationNumber() {
         if (currentRadioStationNumber >= maxRadioStationNumber) {
             currentRadioStationNumber = maxRadioStationNumber;
         } else if (currentRadioStationNumber < minRadioStationNumber) {
@@ -68,7 +68,7 @@ public class Radio {
     }
 //Переключаем на предыдущую станцию
 
-    public int prevRadioStationNumber(int currentRadioStationNumber) {
+    public int prevRadioStationNumber() {
         if (currentRadioStationNumber <= minRadioStationNumber) {
             currentRadioStationNumber = minRadioStationNumber;
         } else if (currentRadioStationNumber > maxRadioStationNumber) {
@@ -109,7 +109,7 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public int minusVolume(int currentVolume) {
+    public int minusVolume() {
         if (currentVolume >= maxVolume) {
             currentVolume = maxVolume;
         } else if (currentVolume <= minVolume) {
@@ -122,7 +122,7 @@ public class Radio {
     }
 
 
-    public int plusVolume(int currentVolume) {
+    public int plusVolume() {
         if (currentVolume >= maxVolume) {
 
             currentVolume = maxVolume;
