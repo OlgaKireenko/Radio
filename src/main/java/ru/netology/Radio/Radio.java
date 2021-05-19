@@ -94,7 +94,7 @@ public class Radio {
         if (currentRadioStationNumber <= minRadioStationNumber) {
             currentRadioStationNumber = maxRadioStationNumber;
         } else if (currentRadioStationNumber > maxRadioStationNumber) {
-            currentRadioStationNumber = maxRadioStationNumber;
+            currentRadioStationNumber = minRadioStationNumber;
         } else {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
