@@ -1,19 +1,41 @@
 package ru.netology.Radio;
 
 public class Radio {
+    //private int numberRadioStation = 10;
     private String name;
     //
-    private int currentRadioStationNumber;
     private int minRadioStationNumber = 0;
-    private int maxRadioStationNumber = 9;
+    private int maxRadioStationNumber = 10;
+    private int currentRadioStationNumber = maxRadioStationNumber/2;
 
     //
     private int currentVolume;
     private int minVolume = 0;
-    private int maxVolume = 10;
+    private int maxVolume = 100;
 
     //
     private boolean on;
+
+    public Radio() {
+    }
+
+    public Radio(String name, int currentRadioStationNumber,
+                 int minRadioStationNumber,
+                 int maxRadioStationNumber, int currentVolume,
+                 int minVolume, int maxVolume, boolean on) {
+        //this.numberRadioStation = numberRadioStation;
+        this.name = name;
+        this.currentRadioStationNumber = currentRadioStationNumber;
+        this.minRadioStationNumber = minRadioStationNumber;
+        this.maxRadioStationNumber = maxRadioStationNumber;
+        this.currentVolume = currentVolume;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.on = on;
+    }
+
+
+
 
     public String getName() {
         return name;
@@ -58,7 +80,7 @@ public class Radio {
 
     public int nextRadioStationNumber() {
         if (currentRadioStationNumber >= maxRadioStationNumber) {
-            currentRadioStationNumber = maxRadioStationNumber;
+            currentRadioStationNumber = minRadioStationNumber;
         } else if (currentRadioStationNumber < minRadioStationNumber) {
             currentRadioStationNumber = minRadioStationNumber;
         } else {
@@ -70,9 +92,9 @@ public class Radio {
 
     public int prevRadioStationNumber() {
         if (currentRadioStationNumber <= minRadioStationNumber) {
-            currentRadioStationNumber = minRadioStationNumber;
-        } else if (currentRadioStationNumber > maxRadioStationNumber) {
             currentRadioStationNumber = maxRadioStationNumber;
+        } else if (currentRadioStationNumber > maxRadioStationNumber) {
+            currentRadioStationNumber = minRadioStationNumber;
         } else {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
@@ -126,7 +148,7 @@ public class Radio {
         if (currentVolume >= maxVolume) {
 
             currentVolume = maxVolume;
-        } else if (currentVolume <= minVolume) {
+        } else if (currentVolume < minVolume) {
             currentVolume = minVolume;
         } else {
             currentVolume = currentVolume + 1;
@@ -144,4 +166,7 @@ public class Radio {
     }
 
 }
+//public Radio() {
+
+//}
 
