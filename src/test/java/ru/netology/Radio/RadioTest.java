@@ -5,55 +5,117 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
+    //Radio radio = new Radio();
 
     @Test
     void ShouldSetCurrentRadioStationNumber() {
-        Radio radio = new Radio();
-        int expected = 9;
+        Radio radio = new Radio("Volna", 5, 0,
+                20,50,0,
+                100,true);
+        int expected = 5;
         //assertEquals(expected, radio.getCurrentRadioStationNumber());
-        radio.setCurrentRadioStationNumber(-1);
+        //radio.setCurrentRadioStationNumber();
+        assertEquals(expected, radio.getCurrentRadioStationNumber());
+
+    }
+    @Test
+    void ShouldSetCurrentRadioStationNumberDefaultConst() {
+        Radio radio = new Radio();
+        int expected = 7;
+        //assertEquals(expected, radio.getCurrentRadioStationNumber());
+        //radio.setCurrentRadioStationNumber();
         assertEquals(expected, radio.getCurrentRadioStationNumber());
     }
 
     @Test
-    void ShouldChangeNextRadioStationNumber() {
+    void ShouldChangeNextRadioStationNumberAllArgs() {
+        Radio radio = new Radio("Volna", 200, 0,
+                200,50,0,
+                100,true);
+        int expected = 0;
+        //radio.setCurrentRadioStationNumber(200);
+        int actual = radio.nextRadioStationNumber();
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    void ShouldChangeNextRadioStationNumberNoArgs() {
         Radio radio = new Radio();
-        int expected = 1;
-        radio.setCurrentRadioStationNumber(0);
+        int expected = 6;
+        //radio.setCurrentRadioStationNumber(200);
         int actual = radio.nextRadioStationNumber();
         assertEquals(expected, actual);
     }
 
     @Test
-    void ShouldChangePrevRadioStationNumber() {
+    void ShouldChangePrevRadioStationNumberAllArgs() {
+        Radio radio = new Radio("Volna", 200, 0,
+                200,50,0,
+                100,true);
+        int expected = 199;
+        int actual = radio.prevRadioStationNumber();
+        assertEquals(expected, actual);
+    }
+    @Test
+    void ShouldChangePrevRadioStationNumberNoArgs() {
         Radio radio = new Radio();
-        int expected = 8;
-        radio.setCurrentRadioStationNumber(9);
+        int expected = 4;
+        //radio.setCurrentRadioStationNumber();
         int actual = radio.prevRadioStationNumber();
         assertEquals(expected, actual);
     }
 
     @Test
-    void ShouldSetCurrentVolume() {
+    void ShouldSetCurrentVolumeAllArgs() {
+        Radio radio = new Radio("Volna", 200, 0,
+                200,100,0,
+                100,true);
+        int expected = 100;
+        //radio.setCurrentVolume(-1);
+        assertEquals(expected, radio.getCurrentVolume());
+    }
+    @Test
+    void ShouldSetCurrentVolumeNoArgs() {
         Radio radio = new Radio();
-        int expected = 0;
-        radio.setCurrentVolume(-1);
+        int expected = 100;
+        radio.setCurrentVolume(102);
         assertEquals(expected, radio.getCurrentVolume());
     }
 
     @Test
-    void ShouldMinusVolume() {
-        Radio radio = new Radio();
-        int expected = 10;
-        radio.setCurrentVolume(11);
+    void ShouldMinusVolumeAllArgs() {
+        Radio radio = new Radio("Volna", 200, 0,
+                200,0,0,
+                100,true);
+        int expected = 0;
+        //radio.setCurrentVolume(0);
         int actual = radio.minusVolume();
         assertEquals(expected, actual);
     }
     @Test
-    void ShouldPlusVolume() {
+    void ShouldMinusVolumeNoArgs() {
         Radio radio = new Radio();
-        int expected = 10;
-        radio.setCurrentVolume(9);
+        int expected = 100;
+        radio.setCurrentVolume(150);
+        int actual = radio.minusVolume();
+        assertEquals(expected, actual);
+    }
+    @Test
+    void ShouldPlusVolumeAllArgs() {
+        Radio radio = new Radio("Volna", 200, 0,
+                200,0,0,
+                100,true);
+        int expected = 1;
+        //radio.setCurrentVolume(100);
+        int actual = radio.plusVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void ShouldPlusVolumeNoArgs() {
+        Radio radio = new Radio();
+        int expected = 100;
+        radio.setCurrentVolume(100);
         int actual = radio.plusVolume();
         assertEquals(expected, actual);
     }
